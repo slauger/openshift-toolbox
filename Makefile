@@ -15,7 +15,7 @@ print_version_okd:
 	@curl -s -H "Accept: application/vnd.github.v3+json" https://api.github.com/repos/openshift/okd/tags | jq -j -r .[0].name
 
 print_version_ocp:
-	@curl -s https://raw.githubusercontent.com/openshift/cincinnati-graph-data/master/channels/$(RELEASE_CHANNEL).yaml | egrep '(4\.[0-9]+\.[0-9]+)' | cut -d" " -f2
+	@curl -s https://raw.githubusercontent.com/openshift/cincinnati-graph-data/master/channels/$(RELEASE_CHANNEL).yaml | egrep '(4\.[0-9]+\.[0-9]+)' | head -n1 | cut -d" " -f2
 
 fetch: fetch_$(DEPLOYMENT_TYPE)
 
