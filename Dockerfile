@@ -1,7 +1,5 @@
 FROM docker.io/library/alpine:3.12.4@sha256:a295107679b0d92cb70145fc18fb53c76e79fceed7e1cf10ed763c7c102c5ebe
 
-LABEL maintainer="simon@lauger.name"
-
 ARG OPENSHIFT_RELEASE
 
 RUN apk update && \
