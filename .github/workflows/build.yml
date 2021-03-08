@@ -26,7 +26,9 @@ jobs:
     - uses: actions/checkout@v1
 
     - name: Set target version for build
-      run: make print_version >> ${GITHUB_ENV}
+      run: |
+        export OPENSHIFT_RELEASE=$(make print_version)
+        echo "OPENSHIFT_RELEASE=${OPENSHIFT_RELEASE}" >> ${GITHUB_ENV}
 
     - name: Fetch external dependencies
       run: make fetch
