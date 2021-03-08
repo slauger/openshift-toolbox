@@ -1,0 +1,44 @@
+name: Docker Build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+       include:
+         - type: okd
+           channel: latest
+         - type: ocp
+           channel: stable-4.6
+         - type: ocp
+           channel: eus-4.6
+         - type: ocp
+           channel: stable-4.7
+    env:
+      DEPLOYMENT_TYPE: ${{ matrix.type }}
+      RELEASE_CHANNEL: ${{ matrix.channel }}
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Set target version for build
+      run: export OPENSHIFT_VERSION=$(make print_version)
+
+    - name: Fetch external dependencies
+      run: make fetch
+
+    - name: Build the Docker image
+      run: make build
+
+    - name: Test Docker image
+      run: make test
+
+    - name: Login to Docker Registry
+      run: docker login -u "${{ secrets.REGISTRY_USERNAME }}" -p "${{ secrets.REGISTRY_PASSWORD }}" "${{ secrets.REGISTRY_HOST }}"
+
+    - name: Push Docker image
+      run: make push
