@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := build
 
-export OPENSHIFT_MIRROR ?= https://mirror.openshift.com/pub/openshift-v4
+export OPENSHIFT_MIRROR?=https://mirror.openshift.com/pub/openshift-v4
 
 export DEPLOYMENT_TYPE?=okd
 export OPENSHIFT_RELEASE?=none
