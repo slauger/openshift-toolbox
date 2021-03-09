@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.com/slauger/openshift-toolbox.svg?branch=master)](https://travis-ci.com/slauger/openshift-toolbox)
-
 # openshift-toolbox
+
+[![Build Status](https://travis-ci.com/slauger/openshift-toolbox.svg?branch=master)](https://travis-ci.com/slauger/openshift-toolbox)
 
 OpenShift Toolbox and Install Images for OKD4 and OCP4.
 
