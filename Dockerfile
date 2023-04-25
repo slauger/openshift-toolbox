@@ -1,4 +1,4 @@
-FROM docker.io/library/alpine:3.12.4@sha256:a295107679b0d92cb70145fc18fb53c76e79fceed7e1cf10ed763c7c102c5ebe
+FROM docker.io/library/alpine:3.12.12@sha256:c75ac27b49326926b803b9ed43bf088bc220d22556de1bc5f72d742c91398f69
 
 ARG OPENSHIFT_RELEASE
 
